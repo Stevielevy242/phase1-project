@@ -1,8 +1,50 @@
 {
     "classics":[
         {
-            "id": 1
+            "id": 1,
+            "title": "OK Computer",
+            "artist": "Radiohead",
+            "artwork": "https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png",
+            "genre": "Rock",
+            "release date": "May 21 1997",
+            "date added": "November 2018"
+        },
+        {
+            "id": 2,
+            "title": "Illmatic",
+            "artist": "Nas",
+            "artwork": "https://upload.wikimedia.org/wikipedia/en/2/27/IllmaticNas.jpg",
+            "genre": "Hip Hop",
+            "release date": "April 19 1994",
+            "date added": "December 2018"
             
+        },
+        {
+            "id": 3,
+            "title": "Either/Or",
+            "artist": "Elliott Smith",
+            "artwork": "https://upload.wikimedia.org/wikipedia/en/f/fd/Elliottsmitheitheror55.jpg",
+            "genre": "Indie Rock",
+            "release date": "February 25 1997",
+            "date added": "September 2018"
+        },
+        {
+            "id": 4,
+            "title": "Some Rap Songs",
+            "artist": "Earl Sweatshirt",
+            "artwork": "https://upload.wikimedia.org/wikipedia/en/d/db/Some_Rap_Songs.jpg",
+            "genre": "Hip Hop",
+            "release date": "November 30 2018",
+            "date added": "February 24 2020"
+        },
+        {
+            "id": 5,
+            "title": "To Pimp A Butterfly",
+            "artist": "Kendrick Lamar",
+            "artwork": "https://upload.wikimedia.org/wikipedia/en/f/f6/Kendrick_Lamar_-_To_Pimp_a_Butterfly.png",
+            "genre":"Hip Hop",
+            "release date": "March 15 2015",
+            "date added": "May 30 2018"
         }
     ]
     
