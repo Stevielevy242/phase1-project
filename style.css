@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+    background: rgb(51, 177, 51);
+}
+
+h2 {
+    text-align: center;
+    background: rgb(6, 0, 0);
+    color:rgb(255, 255, 255);
+}
+
+#album {
+    text-align: center;
+}
