@@ -47,3 +47,88 @@ function renderSongs(album, div){
     //console.log(album.songs)
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let addAlbum = true;
+
+const addAlbumBtn = document.getElementById("new-album-btn");
+const albumFormContainer = document.getElementById("form-container");
+
+addAlbumBtn.addEventListener("click", () => {
+    addAlbum = !addAlbum;
+    if (addAlbum) {
+        albumFormContainer.style.display = "none";
+    } else {
+        albumFormContainer.style.display = "block";
+    }
+  });
+
+  const albumForm = document.getElementById("add-album-form")
+  albumForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    newAlbum();
+  })
+
+  function newAlbum(){
+    const albumTitle = document.getElementsByClassName("input-text")[0]
+    const albumArtist = document.getElementsByClassName("input-text")[1]
+    const albumArt = document.getElementsByClassName("input-text")[2]
+    const albumGenre = document.getElementsByClassName("input-text")[3]
+    const albumRealease = document.getElementsByClassName("input-text")[4]
+    const albumBought = document.getElementsByClassName("input-text")[5]
+    const albumRating = document.getElementsByClassName("input-text")[6]
+
+      fetch("http://localhost:3000/music", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          title: albumTitle.value,
+          artist: albumArtist.value,
+          artwork: albumArt.value,
+          genre: albumGenre.value,
+          release_date: albumRealease.value,
+          date_added: albumBought.value,
+          rating: albumRating,
+        })
+      })
+  }
