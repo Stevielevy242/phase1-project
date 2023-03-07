@@ -48,44 +48,6 @@ function renderSongs(album, div){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let addAlbum = true;
 
 const addAlbumBtn = document.getElementById("new-album-btn");
