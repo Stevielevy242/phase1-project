@@ -55,3 +55,7 @@ button {
     font-family: monospace;
     margin: 3px;
   }
+
+  #form-container{
+    display: none;
+  }
