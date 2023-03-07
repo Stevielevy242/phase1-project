@@ -1,13 +1,17 @@
 {
-    "classics":[
+    "music":[
         {
             "id": 1,
             "title": "OK Computer",
             "artist": "Radiohead",
             "artwork": "https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png",
             "genre": "Rock",
-            "release date": "May 21 1997",
-            "date added": "November 2018"
+            "release_date": "1997-05-21",
+            "date_added": "2018-11-05",
+            "rating": 5,
+            "songs": ["Airbag", "Paranoid Android", "Subterranean Homesick Alien", "Exit Music (For a Film)", "Let Down", "Karma Police", 
+                        "Fitter Happier", "Electioneering", "Climbing Up the Walls", "No Suprises", "Lucky", "The Tourist"]
+            
         },
         {
             "id": 2,
@@ -15,8 +19,11 @@
             "artist": "Nas",
             "artwork": "https://upload.wikimedia.org/wikipedia/en/2/27/IllmaticNas.jpg",
             "genre": "Hip Hop",
-            "release date": "April 19 1994",
-            "date added": "December 2018"
+            "release_date": "1994-04-19",
+            "date_added": "2018-12-10",
+            "rating": 5,
+            "songs": ["The Genesis", "N.Y. State of Mind", "Life's a Bitch (feat. AZ)", "The World is Yours", "Halftime",
+                    "Memory Lane (Sittin' in da Park)", "One Love", "One Time 4 Your Mind", "Represent", "It Ain't Hard To Tell"]
             
         },
         {
@@ -25,8 +32,11 @@
             "artist": "Elliott Smith",
             "artwork": "https://upload.wikimedia.org/wikipedia/en/f/fd/Elliottsmitheitheror55.jpg",
             "genre": "Indie Rock",
-            "release date": "February 25 1997",
-            "date added": "September 2018"
+            "release_date": "1997-02-25",
+            "date_added": "2018-09-30",
+            "songs": ["Speed Trials", "Alameda", "Ballad of Big Nothing", "Between the Bars", "Pictures of Me", "No Name No. 5", 
+                    "Rose Parade", "Punch and Judy", "Angeles", "Cupids Trick", "2:45 AM", "Say Yes"]
+
         },
         {
             "id": 4,
@@ -34,8 +44,12 @@
             "artist": "Earl Sweatshirt",
             "artwork": "https://upload.wikimedia.org/wikipedia/en/d/db/Some_Rap_Songs.jpg",
             "genre": "Hip Hop",
-            "release date": "November 30 2018",
-            "date added": "February 24 2020"
+            "release_date": "2018-11-30",
+            "date_added": "2020-02-14",
+            "rating": 5,
+            "songs": ["Shattered Dreams", "Red Water", "Cold Summers", "Nowhere2go", "December 24", "Ontheway! (feat. Standing on the Corner",
+                    "The Mint (feat. Navy Blue)", "The Bends", "Loosie", "Azucar", "Eclipse", "Veins", "Playing Possum (feat. Cheryl Harris and Keorapetse Kgositsile)",
+                    "Peanut", "Riot!"]
         },
         {
             "id": 5,
@@ -43,8 +57,12 @@
             "artist": "Kendrick Lamar",
             "artwork": "https://upload.wikimedia.org/wikipedia/en/f/f6/Kendrick_Lamar_-_To_Pimp_a_Butterfly.png",
             "genre":"Hip Hop",
-            "release date": "March 15 2015",
-            "date added": "May 30 2018"
+            "release_date": "2015-03-15",
+            "date_added": "2018-05-23",
+            "rating": 5,
+            "songs": ["Wesley's Theory (feat. George Clinton)", "For Free? (Interlude)", "King Kunta", "Institualized (feat. Bilal, Anna Wise and Snoop Dogg", "These Walls (feat. Bilal, Anna Wise and Thundercat)",
+                    "U", "Alright", "For Sale? (Interlude)", "Momma", "Hood Politics", "How Much a Dollar Cost (feat. James Fauntleroy and Ronald Isley)", "Complexion (A Zulu Love) (feat. Rapsody)",
+                    "The Blacker the Berry", "You Ain't Gotta Lie (Momma Said)", "I", "Mortal Man"]
         }
     ]
     
