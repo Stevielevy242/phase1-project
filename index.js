@@ -51,42 +51,7 @@ function renderSongs(album, div){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let addAlbum = true;
+let addAlbum = false;
 
 const addAlbumBtn = document.getElementById("new-album-btn");
 const albumFormContainer = document.getElementById("form-container");
@@ -128,7 +93,7 @@ addAlbumBtn.addEventListener("click", () => {
           genre: albumGenre.value,
           release_date: albumRealease.value,
           date_added: albumBought.value,
-          rating: albumRating,
+          rating: albumRating.value,
         })
       })
   }
