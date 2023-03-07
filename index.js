@@ -69,6 +69,7 @@ addAlbumBtn.addEventListener("click", () => {
   albumForm.addEventListener("submit", (e) => {
     e.preventDefault()
     newAlbum();
+    e.target.reset()
   })
 
   function newAlbum(){
@@ -79,6 +80,7 @@ addAlbumBtn.addEventListener("click", () => {
     const albumRealease = document.getElementsByClassName("input-text")[4]
     const albumBought = document.getElementsByClassName("input-text")[5]
     const albumRating = document.getElementsByClassName("input-text")[6]
+    const div = document.createElement("div")
 
       fetch("http://localhost:3000/music", {
         method: "POST",
@@ -96,4 +98,7 @@ addAlbumBtn.addEventListener("click", () => {
           rating: albumRating.value,
         })
       })
+      .then(response => response.json())
+      .then(newAlbum => renderAlbum(newAlbum,div))
   }
+
