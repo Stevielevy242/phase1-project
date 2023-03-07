@@ -51,7 +51,7 @@ function renderSongs(album, div){
 
 
 
-let addAlbum = false;
+let addAlbum = true;
 
 const addAlbumBtn = document.getElementById("new-album-btn");
 const albumFormContainer = document.getElementById("form-container");
