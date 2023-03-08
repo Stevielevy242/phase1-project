@@ -8,7 +8,7 @@
       "genre": "Rock",
       "release_date": "1997-05-21",
       "date_added": "2018-11-05",
-      "rating": 5,
+      "rating": "5",
       "songs": [
         "Airbag",
         "Paranoid Android",
@@ -32,7 +32,7 @@
       "genre": "Hip Hop",
       "release_date": "1994-04-19",
       "date_added": "2018-12-10",
-      "rating": 5,
+      "rating": "5",
       "songs": [
         "The Genesis",
         "N.Y. State of Mind",
@@ -54,6 +54,7 @@
       "genre": "Indie Rock",
       "release_date": "1997-02-25",
       "date_added": "2018-09-30",
+      "rating": "5",
       "songs": [
         "Speed Trials",
         "Alameda",
@@ -77,7 +78,7 @@
       "genre": "Hip Hop",
       "release_date": "2018-11-30",
       "date_added": "2020-02-14",
-      "rating": 5,
+      "rating": "5",
       "songs": [
         "Shattered Dreams",
         "Red Water",
@@ -104,7 +105,7 @@
       "genre": "Hip Hop",
       "release_date": "2015-03-15",
       "date_added": "2018-05-23",
-      "rating": 5,
+      "rating": "5",
       "songs": [
         "Wesley's Theory (feat. George Clinton)",
         "For Free? (Interlude)",
@@ -123,16 +124,6 @@
         "I",
         "Mortal Man"
       ]
-    },
-    {
-      "title": "Oladimeji Odusote",
-      "artist": "ddee",
-      "artwork": "http://cdn.shopify.com/s/files/1/0563/6708/7809/products/ButtonAnimeNarutoEatingRamen1.25.jpg?v=1632758590",
-      "genre": "ddee",
-      "release_date": "1991-11-04",
-      "date_added": "1991-11-04",
-      "rating": "5",
-      "id": 6
     }
   ]
 }
