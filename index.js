@@ -4,19 +4,24 @@ firstButton.append(sorter);
 const option1 = document.createElement("option");
 option1.innerText = "Please Choose Sorting Method";
 option1.value = "Please Choose Sorting Method"
+option1.setAttribute('selected', 'selected');
+option1.setAttribute('disabled', 'true');
 const option2 = document.createElement("option");
-option2.innerText = "Album";
-option2.value = "Album"
+option2.innerText = "Album (A-Z)";
+option2.value = "Album";
 const option3 = document.createElement("option");
-option3.innerText = "Genre";
-option3.value = "Genre";
+option3.innerText = "Artist (A-Z)";
+option3.value = "Artist";
 const option4 = document.createElement("option");
-option4.innerText = "Date Added";
+option4.innerText = "Date Added (Earliest - Latest)";
 option4.value = "Date Added";
 const option5 = document.createElement("option");
-option5.innerText = "Release Date";
+option5.innerText = "Release Date (Earliest - Latest)";
 option5.value = "Release Date";
-sorter.append(option1, option2, option3, option4, option5)
+const option6 = document.createElement("option");
+option6.innerText = "Rating (Highest - Lowest)";
+option6.value = "Rating";
+sorter.append(option1, option2, option3, option4, option5, option6)
 
 
 
