@@ -1,12 +1,14 @@
 h1 {
     text-align: center;
-    background: rgb(51, 177, 51);
-}
+    font-family: 'Brush Script MT', cursive;
+    font-size: 80px;
+    margin: 0px;
+    background-color: black;
+    color: white;
+  }
 
 h2 {
     text-align: center;
-    background: rgb(6, 0, 0);
-    color:rgb(255, 255, 255);
 }
 
 #album {
@@ -23,6 +25,7 @@ button {
     color: whitesmoke;
     font-size: 18px;
     justify-self: center;
+    padding: 10px;
   }
 
  #container {
@@ -58,4 +61,27 @@ button {
 
   #form-container{
     display: none;
+    background-color: lightgrey;
   }
+
+  p.text-align{
+    gap:5px;
+  }
+
+  #album-Container{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.divAlbum{
+  align-items: flex-start;
+  height: min-content;
+  align-content: center;
+  padding: 20px;
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+}

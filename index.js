@@ -23,24 +23,32 @@ option6.innerText = "Rating (Highest - Lowest)";
 option6.value = "Rating";
 sorter.append(option1, option2, option3, option4, option5, option6)
 
+let currentAlbums = []
+
 
 
 
 fetch("http://localhost:3000/music")
 .then(response => response.json())
-.then(albums => albums.forEach(album =>{
+.then(albums => { 
+  currentAlbums = albums;
+  albums.forEach(album =>{
     const div = document.createElement("div");
-    renderAlbum(album, div)}))
+    div.className = "divAlbum"
+    renderAlbum(album, div)})
+  })
+  
 
 function renderAlbum(album, div){
     const albumContainer = document.getElementById("album-Container");
     albumContainer.append(div);
     const img = document.createElement("img");
     const artist = document.createElement("h3");
-    const title = document.createElement("h3");
-    const genre = document.createElement("h3");
-    const dateReleased = document.createElement("h3");
-    const dateBought = document.createElement("h3");
+    const title = document.createElement("i");
+    const genre = document.createElement("h5");
+    genre.style.color = "red"
+    const dateReleased = document.createElement("h5");
+    const dateBought = document.createElement("h5");
     const rating = document.createElement("h3")
     const deleteBtn = document.createElement("button")
     img.src = album.artwork;
@@ -91,7 +99,7 @@ function renderAlbum(album, div){
     function renderSongs(album, div){
       const songContainer = document.createElement("div");
       div.append(songContainer);
-      const songList = document.createElement("ul");
+      const songList = document.createElement("ol");
       songContainer.append(songList)
       album.songs.forEach(song =>{
         const li = document.createElement("li");
@@ -157,6 +165,12 @@ addAlbumBtn.addEventListener("click", () => {
         })
       })
       .then(response => response.json())
-      .then(newAlbum => renderAlbum(newAlbum,div))
+      .then(newAlbum => {
+        currentAlbums = [...currentAlbums, newAlbum]
+        renderAlbum(newAlbum,div)
+      })
+    
   }
+
+  
 
