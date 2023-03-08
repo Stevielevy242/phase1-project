@@ -4,6 +4,9 @@ firstButton.append(sorter);
 const option1 = document.createElement("option");
 option1.innerText = "Please Choose Sorting Method";
 option1.value = "Please Choose Sorting Method"
+option1.setAttribute('selected', 'selected');
+option1.setAttribute('disabled', 'true');
+//option1.setAttribute('hidden', 'true');
 const option2 = document.createElement("option");
 option2.innerText = "Album";
 option2.value = "Album"
@@ -70,7 +73,7 @@ function renderAlbum(album, div){
 
 
     let showImage = false;
-    img.addEventListener("click", () => {
+    img.addEventListener("click", (e) => {
         showImage = !showImage
         const existingList = e.target.parentNode.lastChild;
         if (showImage){
