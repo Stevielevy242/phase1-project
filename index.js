@@ -1,5 +1,6 @@
 const firstButton = document.getElementById("text-align");
 const sorter = document.createElement("select");
+sorter.id = "sorter";
 firstButton.append(sorter);
 const option1 = document.createElement("option");
 option1.innerText = "Please Choose Sorting Method";
@@ -23,18 +24,18 @@ option6.innerText = "Rating (Highest - Lowest)";
 option6.value = "Rating";
 sorter.append(option1, option2, option3, option4, option5, option6)
 
-
-
+let currentAlbums = []
 
 fetch("http://localhost:3000/music")
 .then(response => response.json())
-.then(albums => albums.forEach(album =>{
-    const div = document.createElement("div");
-    renderAlbum(album, div)}))
+.then(albums => {
+    sortAlbums(albums)
+})
 
 function renderAlbum(album, div){
+    const albumDiv = document.createElement("div")
     const albumContainer = document.getElementById("album-Container");
-    albumContainer.append(div);
+    albumContainer.append(albumDiv);
     const img = document.createElement("img");
     const artist = document.createElement("h3");
     const title = document.createElement("h3");
@@ -71,7 +72,7 @@ function renderAlbum(album, div){
 
     deleteBtn.innerText = "Delete Album"
 
-    div.append(img, artist, title, genre, dateReleased, dateBought, rating, deleteBtn);
+    albumDiv.append(img, artist, title, genre, dateReleased, dateBought, rating, deleteBtn);
 
 
     let showImage = false;
@@ -79,18 +80,18 @@ function renderAlbum(album, div){
         showImage = !showImage
         const existingList = e.target.parentNode.lastChild;
         if (showImage){
-            renderSongs(album, div);
+            renderSongs(album, albumDiv);
         }
         else{
             existingList.remove();
         }
     })
 
-    deleteBtn.addEventListener("click", () => deleteAlbum(album, div))
+    deleteBtn.addEventListener("click", () => deleteAlbum(album, albumDiv))
 
-    function renderSongs(album, div){
+    function renderSongs(album, albumDiv){
       const songContainer = document.createElement("div");
-      div.append(songContainer);
+      albumDiv.append(songContainer);
       const songList = document.createElement("ul");
       songContainer.append(songList)
       album.songs.forEach(song =>{
@@ -157,6 +158,41 @@ addAlbumBtn.addEventListener("click", () => {
         })
       })
       .then(response => response.json())
-      .then(newAlbum => renderAlbum(newAlbum,div))
+      .then(newAlbum => {
+        currentAlbums = [...currentAlbums, newAlbum]
+        sortAlbums(currentAlbums)
+        // console.log(currentAlbums);
+      })
   }
 
+function sortAlbums(albums) {
+  albums.forEach(album => renderAlbum(album))
+  sorter.addEventListener("change", (e)=>{
+      currentDisplay = e.target.parentNode.parentNode.childNodes[9];
+      console.log(e.target.parentNode.parentNode.childNodes[9])
+      console.log(currentDisplay)
+      while (currentDisplay.lastChild){
+        currentDisplay.removeChild(currentDisplay.firstChild)
+      }
+      if (sorter.value === "Album"){
+         const sortedAlbums = albums.sort((a,b) => (a.title > b.title) ? 1: -1)
+         sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Artist"){
+        const sortedAlbums = albums.sort((a, b) => (a.artist > b.artist)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Date Added"){
+        const sortedAlbums = albums.sort((a, b) => (a.date_added > b.date_added)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Release Date"){
+        const sortedAlbums = albums.sort((a, b) => (a.release_date > b.release_date)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Rating"){
+        const sortedAlbums = albums.sort((a, b) => (a.rating > b.rating)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+  })  
+}
