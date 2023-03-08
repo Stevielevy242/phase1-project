@@ -1,3 +1,26 @@
+const firstButton = document.getElementById("text-align");
+const sorter = document.createElement("select");
+firstButton.append(sorter);
+const option1 = document.createElement("option");
+option1.innerText = "Please Choose Sorting Method";
+option1.value = "Please Choose Sorting Method"
+const option2 = document.createElement("option");
+option2.innerText = "Album";
+option2.value = "Album"
+const option3 = document.createElement("option");
+option3.innerText = "Genre";
+option3.value = "Genre";
+const option4 = document.createElement("option");
+option4.innerText = "Date Added";
+option4.value = "Date Added";
+const option5 = document.createElement("option");
+option5.innerText = "Release Date";
+option5.value = "Release Date";
+sorter.append(option1, option2, option3, option4, option5)
+
+
+
+
 fetch("http://localhost:3000/music")
 .then(response => response.json())
 .then(albums => albums.forEach(album =>{
@@ -5,7 +28,6 @@ fetch("http://localhost:3000/music")
     renderAlbum(album, div)}))
 
 function renderAlbum(album, div){
-    //const div = document.createElement("div");
     const albumContainer = document.getElementById("album-Container");
     albumContainer.append(div);
     const img = document.createElement("img");
@@ -44,14 +66,9 @@ function renderSongs(album, div){
         li.innerText = song;
         songList.append(li);
     })
-    //console.log(album.songs)
-
 }
 
-
-
-
-let addAlbum = false;
+let addAlbum = true;
 
 const addAlbumBtn = document.getElementById("new-album-btn");
 const albumFormContainer = document.getElementById("form-container");
