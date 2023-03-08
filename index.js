@@ -36,13 +36,35 @@ function renderAlbum(album, div){
     const genre = document.createElement("h3");
     const dateReleased = document.createElement("h3");
     const dateBought = document.createElement("h3");
+    const rating = document.createElement("h3")
+    const deleteBtn = document.createElement("button")
     img.src = album.artwork;
     artist.innerText = album.artist;
     title.innerText = album.title;
     genre.innerText = album.genre;
     dateReleased.innerText = `Release Date: ${album.release_date}`;
     dateBought.innerText = `Purchase Date: ${album.date_added}`;
-    div.append(img, artist, title, genre, dateReleased, dateBought);
+    if(album.rating === "5"){
+      rating.innerText = "Rating: ★★★★★";
+    }
+    else if(album.rating === "4"){
+      rating.innerText = "Rating: ★★★★";
+    }
+    else if(album.rating === "3"){
+      rating.innerText = "Rating: ★★★";
+    }
+    else if(album.rating === "2"){
+      rating.innerText = "Rating: ★★";
+    }
+    else if(album.rating === "1"){
+      rating.innerText = "Rating: ★";
+    }
+    else{
+      rating.innerText = "Rating: No Stars";
+    }
+
+    deleteBtn.innerText = "Delete Album"
+    div.append(img, artist, title, genre, dateReleased, dateBought, rating, deleteBtn);
     let showImage = false;
     img.addEventListener("click", (e) => {
         showImage = !showImage
@@ -66,6 +88,13 @@ function renderSongs(album, div){
         li.innerText = song;
         songList.append(li);
     })
+}
+
+function deleteAlbum(album, div){
+  fetch(`http://localhost:3000/music/${album.id}`, {
+    method: "DELETE"
+  })
+  div.remove()
 }
 
 let addAlbum = true;
