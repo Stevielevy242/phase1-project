@@ -75,7 +75,7 @@ function renderAlbum(album, div){
 
 
     let showImage = false;
-    img.addEventListener("click", () => {
+    img.addEventListener("click", (e) => {
         showImage = !showImage
         const existingList = e.target.parentNode.lastChild;
         if (showImage){
