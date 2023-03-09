@@ -12,4 +12,13 @@ Run this command to get the backend started:
 ## Output
 
 The base project will pull from a database of five of our personally 
-owned vinyls but obviously the user will have free range to add or remove their own vinyls from the library!
+owned vinyls but obviously the user will have free range to add or remove their own vinyls from the library! Functionality includes: 
+- Adding new albums
+- Adding songs to each album
+- Deleting old albums
+- Sorting your albums by:
+    - Artist (A-Z)
+    - Album (A-Z)
+    - Date Album Purchased (Earliest - Latest)
+    - Date Album Released (Earliest - Latest)
+    - Rating (Highest - Lowest)

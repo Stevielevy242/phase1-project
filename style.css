@@ -85,4 +85,19 @@ button {
   border-color: black;
   border-width: 5px;
 }
-#add_songs{}
+
+#add_songs{
+  margin: 5px;
+
+#songContainer{
+  margin: 20px;
+}
+
+#filterHead{
+  text-align: center;
+}
+
+#sorter{
+  font-size: 15px;
+
+}
