@@ -122,7 +122,6 @@ function renderAlbum(album, div){
     let showImage = false;
     img.addEventListener("click", (e)=>{
       showImage = !showImage
-      console.log(e.target.parentNode.lastChild)
       const currentSongs = e.target.parentNode.lastChild
       if (showImage){
         currentSongs.style.display = "block"
@@ -148,15 +147,13 @@ function renderAlbum(album, div){
 
     songForm.addEventListener("submit", (e)=> {
       e.preventDefault()
-      const currentSongs = e.target.parentNode.lastChild.firstChild
+      const currentSongs = e.target.parentNode.lastChild.lastChild
       const newSong = document.createElement("li")
       newSong.innerText = e.target.name.value;
       currentSongs.append(newSong)
       songForm.reset()
 
       album.songs = [...album.songs, newSong.innerText]
-      console.log(album.songs)
-      console.log(newSong.innerText)
 
       fetch(`http://localhost:3000/music/${album.id}`,{
         method: "PATCH",
@@ -228,9 +225,7 @@ addAlbumBtn.addEventListener("click", () => {
       .then(response => response.json())
       .then(newAlbum => {
         currentAlbums = [...currentAlbums, newAlbum]
-        console.log(currentAlbums)
         //Find way to check current sort    
-        console.log(sorter.value)
         if (sorter.value == "Album"){
           const sortedAlbums = currentAlbums.sort((a,b) => (a.title > b.title) ? 1: -1)
           sortedAlbums.forEach(album => renderAlbum(album))
