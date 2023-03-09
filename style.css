@@ -87,8 +87,8 @@ button {
   border-width: 5px;
 }
 
-
-
+#add_songs{
+  margin: 5px;
 
 #songContainer{
   margin: 20px;
@@ -100,4 +100,5 @@ button {
 
 #sorter{
   font-size: 15px;
+
 }

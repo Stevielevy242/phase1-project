@@ -8,7 +8,7 @@
       "genre": "Art Rock",
       "release_date": "1997-05-21",
       "date_added": "2018-11-05",
-      "rating": "5",
+      "rating": "4",
       "songs": [
         "Airbag - 4:44",
         "Paranoid Android - 6:23",
@@ -32,7 +32,7 @@
       "genre": "Hip Hop",
       "release_date": "1994-04-19",
       "date_added": "2018-12-10",
-      "rating": "5",
+      "rating": "2",
       "songs": [
         "The Genesis - 1:45",
         "N.Y. State of Mind - 4:53",
@@ -54,7 +54,7 @@
       "genre": "Indie Rock",
       "release_date": "1997-02-25",
       "date_added": "2018-09-30",
-      "rating": "5",
+      "rating": "0",
       "songs": [
         "Speed Trials - 3:01",
         "Alameda - 3:43",
@@ -105,7 +105,7 @@
       "genre": "Hip Hop",
       "release_date": "2015-03-15",
       "date_added": "2018-05-23",
-      "rating": "5",
+      "rating": "1",
       "songs": [
         "Wesley's Theory (feat. George Clinton) - 4:47",
         "For Free? (Interlude) - 2:10",
@@ -124,26 +124,6 @@
         "I - 5:36",
         "Mortal Man - 12:07"
       ]
-    },
-    {
-      "title": "Nevermind",
-      "artist": "Nirvana",
-      "artwork": "https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg",
-      "genre": "Grunge",
-      "release_date": "1991-11-24",
-      "date_added": "2020-12-12",
-      "rating": "5",
-      "id": 6
-    },
-    {
-      "title": "Loveless",
-      "artist": "My Bloody Valentine",
-      "artwork": "https://upload.wikimedia.org/wikipedia/en/4/4b/My_Bloody_Valentine_-_Loveless.png",
-      "genre": "Shoegaze",
-      "release_date": "1991-11-04",
-      "date_added": "2022-12-12",
-      "rating": "5",
-      "id": 7
     }
   ]
 }

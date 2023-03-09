@@ -48,13 +48,34 @@ function renderAlbum(album, div){
     const dateReleased = document.createElement("h5");
     const dateBought = document.createElement("h5");
     const rating = document.createElement("h3")
-    const deleteBtn = document.createElement("button")
+    const deleteBtn = document.createElement("button");
+    const breakElement = document.createElement("br");
+    const addSongBtn = document.createElement("button")
+    addSongBtn.id = "add_songs"
     img.src = album.artwork;
     artist.innerText = album.artist;
     title.innerText = album.title;
     genre.innerText = album.genre;
+    deleteBtn.innerText = "Delete Album"
+    addSongBtn.innerText = "Add Songs!"
     dateReleased.innerText = `Release Date: ${album.release_date}`;
     dateBought.innerText = `Purchase Date: ${album.date_added}`;
+
+    const songForm = document.createElement("form");
+    songForm.id = "song_list_form";
+    const songInput = document.createElement("input");
+    const songSubmit = document.createElement("input")
+    songForm.append(songInput, songSubmit);
+    songInput.type = "text";
+    songInput.name = "name";
+    songInput.value = "";
+    songInput.placeholder = "Enter song!";
+    songInput.class = "input-text";
+    songSubmit.type = "submit";
+    songSubmit.name = "submit";
+    songSubmit.value = "Add Song!"
+    songSubmit.class = "submit"
+    songForm.style.display = "none";
 
     if(album.rating === "5"){
       rating.innerText = "Rating: ★★★★★";
@@ -75,26 +96,10 @@ function renderAlbum(album, div){
       rating.innerText = "Rating: No Stars";
     }
 
-    deleteBtn.innerText = "Delete Album"
-
-    albumDiv.append(img, artist, title, genre, dateReleased, dateBought, rating, deleteBtn);
-
-
-    let showImage = false;
-    img.addEventListener("click", (e) => {
-        showImage = !showImage
-        const existingList = e.target.parentNode.lastChild;
-        if (showImage){
-            renderSongs(album, albumDiv);
-        }
-        else{
-            existingList.remove();
-        }
-    })
-
-    deleteBtn.addEventListener("click", () => deleteAlbum(album, albumDiv))
+    albumDiv.append(img, artist, title, genre, dateReleased, dateBought, rating, addSongBtn, breakElement, deleteBtn, songForm);
 
     function renderSongs(album, albumDiv){
+
       const songContainer = document.createElement("div");
       songContainer.id = "songContainer"
       const songHead = document.createElement("b")
@@ -109,8 +114,60 @@ function renderAlbum(album, div){
         li.innerText = song;
         songList.append(li);
     })
-
+    songContainer.style.display = "none";
   }
+
+  renderSongs(album, albumDiv)
+
+    let showImage = false;
+    img.addEventListener("click", (e)=>{
+      showImage = !showImage
+      console.log(e.target.parentNode.lastChild)
+      const currentSongs = e.target.parentNode.lastChild
+      if (showImage){
+        currentSongs.style.display = "block"
+      }
+      else {
+        currentSongs.style.display = "none";
+      }
+    })
+
+
+    deleteBtn.addEventListener("click", () => deleteAlbum(album, albumDiv))
+
+    let showAddSongsBtn = true
+    addSongBtn.addEventListener("click", (e) => {
+      showAddSongsBtn = !showAddSongsBtn
+      if (showAddSongsBtn){
+        songForm.style.display = "none"
+      }
+      else {
+        songForm.style.display = "block";
+      }
+    })
+
+    songForm.addEventListener("submit", (e)=> {
+      e.preventDefault()
+      const currentSongs = e.target.parentNode.lastChild.firstChild
+      const newSong = document.createElement("li")
+      newSong.innerText = e.target.name.value;
+      currentSongs.append(newSong)
+      songForm.reset()
+
+      album.songs = [...album.songs, newSong.innerText]
+      console.log(album.songs)
+      console.log(newSong.innerText)
+
+      fetch(`http://localhost:3000/music/${album.id}`,{
+        method: "PATCH",
+        headers : {
+          "Content-Type": "application/json" ,
+        },
+        body: JSON.stringify({
+          "songs": album.songs
+        })
+      })
+    })
 }
 
 function deleteAlbum(album, div){
@@ -165,6 +222,7 @@ addAlbumBtn.addEventListener("click", () => {
           release_date: albumRealease.value,
           date_added: albumBought.value,
           rating: albumRating.value,
+          songs: []
         })
       })
       .then(response => response.json())
@@ -190,7 +248,7 @@ addAlbumBtn.addEventListener("click", () => {
         sortedAlbums.forEach(album => renderAlbum(album))
       }
       else if (sorter.value === "Rating"){
-        const sortedAlbums = currentAlbums.sort((a, b) => (a.rating > b.rating)? 1: -1)
+        const sortedAlbums = currentAlbums.sort((a, b) => (a.rating < b.rating)? 1: -1)
         sortedAlbums.forEach(album => renderAlbum(album))
       }
         sortAlbums(currentAlbums)
@@ -219,7 +277,7 @@ function sortAlbums(albums) {
         sortedAlbums.forEach(album => renderAlbum(album))
       }
       else if (sorter.value === "Rating"){
-        const sortedAlbums = albums.sort((a, b) => (a.rating > b.rating)? 1: -1)
+        const sortedAlbums = albums.sort((a, b) => (a.rating < b.rating)? 1: -1)
         sortedAlbums.forEach(album => renderAlbum(album))
       }
   })  
