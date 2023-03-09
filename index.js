@@ -30,6 +30,7 @@ let currentAlbums = []
 fetch("http://localhost:3000/music")
 .then(response => response.json())
 .then(albums => {
+    currentAlbums = albums
     sortAlbums(albums)
 })
 
@@ -165,20 +166,38 @@ addAlbumBtn.addEventListener("click", () => {
       .then(response => response.json())
       .then(newAlbum => {
         currentAlbums = [...currentAlbums, newAlbum]
+        console.log(currentAlbums)
+        //Find way to check current sort    
+        console.log(sorter.value)
+        if (sorter.value == "Album"){
+          const sortedAlbums = currentAlbums.sort((a,b) => (a.title > b.title) ? 1: -1)
+          sortedAlbums.forEach(album => renderAlbum(album))
+       }
+       else if (sorter.value === "Artist"){
+        const sortedAlbums = currentAlbums.sort((a, b) => (a.artist > b.artist)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Date Added"){
+        const sortedAlbums = currentAlbums.sort((a, b) => (a.date_added > b.date_added)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Release Date"){
+        const sortedAlbums = currentAlbums.sort((a, b) => (a.release_date > b.release_date)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
+      else if (sorter.value === "Rating"){
+        const sortedAlbums = currentAlbums.sort((a, b) => (a.rating > b.rating)? 1: -1)
+        sortedAlbums.forEach(album => renderAlbum(album))
+      }
         sortAlbums(currentAlbums)
-        // console.log(currentAlbums);
       })
   }
 
 function sortAlbums(albums) {
+  clearAlbums()
   albums.forEach(album => renderAlbum(album))
   sorter.addEventListener("change", (e)=>{
-      currentDisplay = e.target.parentNode.parentNode.childNodes[9];
-      console.log(e.target.parentNode.parentNode.childNodes[9])
-      console.log(currentDisplay)
-      while (currentDisplay.lastChild){
-        currentDisplay.removeChild(currentDisplay.firstChild)
-      }
+      clearAlbums()
       if (sorter.value === "Album"){
          const sortedAlbums = albums.sort((a,b) => (a.title > b.title) ? 1: -1)
          sortedAlbums.forEach(album => renderAlbum(album))
@@ -202,3 +221,9 @@ function sortAlbums(albums) {
   })  
 }
 
+function clearAlbums(){
+  currentDisplay = sorter.parentNode.parentNode.childNodes[9];
+      while (currentDisplay.lastChild){
+        currentDisplay.removeChild(currentDisplay.firstChild)
+      }
+}

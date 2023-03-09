@@ -124,6 +124,26 @@
         "I - 5:36",
         "Mortal Man - 12:07"
       ]
+    },
+    {
+      "title": "Nevermind",
+      "artist": "Nirvana",
+      "artwork": "https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg",
+      "genre": "Grunge",
+      "release_date": "1991-11-24",
+      "date_added": "2020-12-12",
+      "rating": "5",
+      "id": 6
+    },
+    {
+      "title": "Loveless",
+      "artist": "My Bloody Valentine",
+      "artwork": "https://upload.wikimedia.org/wikipedia/en/4/4b/My_Bloody_Valentine_-_Loveless.png",
+      "genre": "Shoegaze",
+      "release_date": "1991-11-04",
+      "date_added": "2022-12-12",
+      "rating": "5",
+      "id": 7
     }
   ]
 }
