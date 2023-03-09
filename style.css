@@ -85,3 +85,6 @@ button {
   border-color: black;
   border-width: 5px;
 }
+#add_songs{
+  margin: 5px;
+}
