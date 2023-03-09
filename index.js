@@ -3,8 +3,9 @@ const sorter = document.createElement("select");
 sorter.id = "sorter";
 firstButton.append(sorter);
 const option1 = document.createElement("option");
-option1.innerText = "Please Choose Sorting Method";
+option1.innerText = "⍫ Filter";
 option1.value = "Please Choose Sorting Method"
+option1.id = "filterHead"
 option1.setAttribute('selected', 'selected');
 option1.setAttribute('disabled', 'true');
 const option2 = document.createElement("option");
@@ -98,13 +99,16 @@ function renderAlbum(album, div){
     albumDiv.append(img, artist, title, genre, dateReleased, dateBought, rating, addSongBtn, breakElement, deleteBtn, songForm);
 
     function renderSongs(album, albumDiv){
-    const songContainer = document.createElement("div");
-    songContainer.id = "songContainer"
+
+      const songContainer = document.createElement("div");
+      songContainer.id = "songContainer"
+      const songHead = document.createElement("b")
+      songHead.innerText = "Song List"
 
       albumDiv.append(songContainer);
       const songList = document.createElement("ol");
 
-      songContainer.append(songList)
+      songContainer.append(songHead, songList)
       album.songs.forEach(song =>{
         const li = document.createElement("li");
         li.innerText = song;
@@ -285,3 +289,4 @@ function clearAlbums(){
         currentDisplay.removeChild(currentDisplay.firstChild)
       }
 }
+
